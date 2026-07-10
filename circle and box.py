@@ -31,7 +31,7 @@ x_train, x_test, y_train, y_test = train_test_split(image,
                                                     test_size=0.2, 
                                                     random_state= 42)
 
-reg_logestic = linear_model.LogisticRegression()
+reg_logestic = linear_model.LogisticRegression(max_iter=10000)
 reg_logestic.fit(x_train, y_train)
 
 out_prod = reg_logestic.predict(x_test)
