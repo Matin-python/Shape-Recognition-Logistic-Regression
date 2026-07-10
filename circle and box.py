@@ -17,7 +17,7 @@ for i in range (20):
     image[i] = image[i] / 255
 
 
-
+# 0 = Square    1 = Circle 
 real_out = np.array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
 
 x_train, x_test, y_train, y_test = train_test_split(image, real_out, test_size=0.2)
