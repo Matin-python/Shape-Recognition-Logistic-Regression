@@ -61,4 +61,7 @@ test = test.flatten()
 test = test / 255
 
 out_test = reg_logestic.predict(test.reshape(1, -1))
-print(out_test)
+if out_test[0] == 0:
+    print("Prediction: Square")
+else:
+    print("Prediction: Circle")
