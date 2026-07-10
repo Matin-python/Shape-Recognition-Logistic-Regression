@@ -47,6 +47,9 @@ out_prod = reg_logestic.predict(x_test)
 #correct_percentage = (cor * 100) / y_test.size
 #print("correct prediction= ", correct_percentage, "%")
 
+accuracy = sm.accuracy_score(y_test, out_pred)
+print(f"Accuracy: {accuracy:.2%}")
+
 msr = sm.mean_squared_error(y_test, out_prod)
 print('mean squared error= ', msr)
 
