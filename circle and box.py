@@ -8,13 +8,19 @@ import matplotlib.pyplot as plt
 from PIL import Image
 
 
+def preprocess_image(path):
+    image = Image.open(path)
+    image = np.array(image)
+    image = image[:, :, 0]
+    image = image.flatten()
+    image = image / 255
+    return image
+
 image = []
-for i in range (20):
-    image.append(Image.open(f'dataset/{i}.jpg'))
-    image[i] = np.array(image[i])
-    image[i] = image[i][:, :, 0]
-    image[i] = image[i].flatten()
-    image[i] = image[i] / 255
+for i in range(20):
+    image.append(preprocess_image(f"dataset/{i}.jpg"))
+
+image = np.array(image)
 
 
 # 0 = Square    1 = Circle 
