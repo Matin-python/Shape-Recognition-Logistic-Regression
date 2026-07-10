@@ -20,7 +20,10 @@ for i in range (20):
 # 0 = Square    1 = Circle 
 real_out = np.array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
 
-x_train, x_test, y_train, y_test = train_test_split(image, real_out, test_size=0.2)
+x_train, x_test, y_train, y_test = train_test_split(image, 
+                                                    labels, 
+                                                    test_size=0.2, 
+                                                    random_state= 42)
 
 reg_logestic = linear_model.LogisticRegression()
 reg_logestic.fit(x_train, y_train)
