@@ -1,12 +1,12 @@
 import numpy as np 
-import pandas as pd
-import seaborn as sns
+
 from sklearn import linear_model 
 import sklearn.metrics as sm
 from sklearn.model_selection import train_test_split
-import matplotlib.pyplot as plt
-from PIL import Image
 
+import matplotlib.pyplot as plt
+
+from PIL import Image
 
 def preprocess_image(path):
     """
@@ -21,61 +21,45 @@ def preprocess_image(path):
     image = image / 255
     return image
 
+DATASET_SIZE = 20
+
 image = []
-for i in range(20):
+for i in range(DATASET_SIZE):
     image.append(preprocess_image(f"dataset/{i}.jpg"))
 
 image = np.array(image)
 
 
-# 0 = Square    1 = Circle 
-real_out = np.array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+# 0 = Square    1 = Circle   
+labels = np.array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
 
 x_train, x_test, y_train, y_test = train_test_split(image, 
                                                     labels, 
                                                     test_size=0.2, 
                                                     random_state= 42)
 
-reg_logestic = linear_model.LogisticRegression(max_iter=10000)
-reg_logestic.fit(x_train, y_train)
+reg_logistic = linear_model.LogisticRegression(max_iter=10000)
+reg_logistic.fit(x_train, y_train)
 
-out_prod = reg_logestic.predict(x_test)
+out_pred = reg_logistic.predict(x_test)
 
 # print(out_prod)
 # print(y_test)
 
-#cor = 0
-#incor = 0
-#for i in range(y_test.size):
-#    if out_prod[i] == y_test[i]:
-#        cor += 1
-#    elif out_prod[i] != y_test[i]:
-#        incor += 1
-
-# print (cor, incor)
-# print(y_test.size)
-
-#correct_percentage = (cor * 100) / y_test.size
-#print("correct prediction= ", correct_percentage, "%")
 
 accuracy = sm.accuracy_score(y_test, out_pred)
 print(f"Accuracy: {accuracy:.2%}")
 
-msr = sm.mean_squared_error(y_test, out_prod)
+msr = sm.mean_squared_error(y_test, out_pred)
 print('mean squared error= ', msr)
 
-
-test = Image.open(f'dataset/t2.jpg')
-test= np.array(test)
-test = test[:, :, 0]
-test = test.flatten()
-test = test / 255
+test = preprocess_image("dataset/t2.jpg")
 
 plt.imshow(Image.open("dataset/t2.jpg"))
 plt.axis("off")
 plt.show()
 
-out_test = reg_logestic.predict(test.reshape(1, -1))
+out_test = reg_logistic.predict(test.reshape(1, -1))
 if out_test[0] == 0:
     print("Prediction: Square")
 else:
