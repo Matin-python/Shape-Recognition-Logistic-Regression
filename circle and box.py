@@ -33,19 +33,19 @@ out_prod = reg_logestic.predict(x_test)
 # print(out_prod)
 # print(y_test)
 
-cor = 0
-incor = 0
-for i in range(y_test.size):
-    if out_prod[i] == y_test[i]:
-        cor += 1
-    elif out_prod[i] != y_test[i]:
-        incor += 1
+#cor = 0
+#incor = 0
+#for i in range(y_test.size):
+#    if out_prod[i] == y_test[i]:
+#        cor += 1
+#    elif out_prod[i] != y_test[i]:
+#        incor += 1
 
 # print (cor, incor)
 # print(y_test.size)
 
-correct_percentage = (cor * 100) / y_test.size
-print("correct prediction= ", correct_percentage, "%")
+#correct_percentage = (cor * 100) / y_test.size
+#print("correct prediction= ", correct_percentage, "%")
 
 msr = sm.mean_squared_error(y_test, out_prod)
 print('mean squared error= ', msr)
