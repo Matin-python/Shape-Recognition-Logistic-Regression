@@ -9,6 +9,11 @@ from PIL import Image
 
 
 def preprocess_image(path):
+    """
+    Load an image, convert it to grayscale,
+    flatten it into a 1D feature vector,
+    and normalize pixel values.
+    """
     image = Image.open(path)
     image = np.array(image)
     image = image[:, :, 0]
