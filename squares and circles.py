@@ -59,6 +59,7 @@ plt.imshow(Image.open("dataset/t2.jpg"))
 plt.axis("off")
 plt.show()
 
+print()
 out_test = reg_logistic.predict(test.reshape(1, -1))
 if out_test[0] == 0:
     print("Prediction: Square")
