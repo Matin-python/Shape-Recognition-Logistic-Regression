@@ -129,15 +129,14 @@ Prediction: Circle
 
 ### Training Dataset
 
-```md
-![circle](dataset/9.png)
-
-![square](dataset/18.png)
-```
+![square](dataset/5.jpg)
+![square](dataset/9.jpg)
+![circle](dataset/15.jpg)
+![circle](dataset/18.jpg)
 
 ### Test Image
 
-![circle](dataset/t2.png)
+![circle](dataset/t2.jpg)
 
 ## Future Improvements
 
