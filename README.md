@@ -30,16 +30,13 @@ Shape-Recognition-Logistic-Regression/
 │   ├── 0.jpg
 │   ├── ...
 │   ├── 19.jpg
+│   ├── t1.jpg
 │   └── t2.jpg
 │
-├── main.py
+├── squares and circles.py
 ├── requirements.txt
 ├── README.md
-├── LICENSE
-│
-└── images/
-    ├── dataset_examples.png
-    └── prediction_example.png
+└── LICENSE
 ```
 
 ## Installation
@@ -96,7 +93,7 @@ Each image is:
 Run the project:
 
 ```bash
-python main.py
+python squares and circles.py
 ```
 
 The program will:
@@ -132,11 +129,15 @@ Prediction: Circle
 
 ### Training Dataset
 
-Add a screenshot of several training images here.
+```md
+![circle](dataset/9.png)
+
+![square](dataset/18.png)
+```
 
 ### Test Image
 
-Add a screenshot of the image used for prediction.
+![circle](dataset/t2.png)
 
 ## Future Improvements
 
